@@ -15,7 +15,8 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+			"@/api": ["./pages/api"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
