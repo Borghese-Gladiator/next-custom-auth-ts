@@ -1,24 +1,17 @@
-// components/Layout.jsx
 import Link from "next/link";
 
 export default function Layout({ children }: Props): JSX.Element {
   return (
-    <>
+    <div>
       <nav>
-        <Link href="/">
-          <a>Home Page</a>
-        </Link>
+        <Link href="/">Home Page</Link>
 
-        <Link href="/signup">
-          <a>SignUp</a>
-        </Link>
+        <Link href="/signup">SignUp</Link>
 
-        <Link href="/signin">
-          <a>SignIn</a>
-        </Link>
+        <Link href="/signin">SignIn</Link>
       </nav>
 
       <main>{children}</main>
-    </>
+    </div>
   );
 }

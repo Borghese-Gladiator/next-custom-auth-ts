@@ -9,6 +9,7 @@ export async function getServerSideProps({ req, res}: any) {
   await dbConnect();
 
   // Redirect user if already authenticated
+  /*
   const user = await getUser(req, res);
   if (user) {
     return {
@@ -19,6 +20,7 @@ export async function getServerSideProps({ req, res}: any) {
       props: {},
     };
   }
+  */
   return {
     props: {},
   };

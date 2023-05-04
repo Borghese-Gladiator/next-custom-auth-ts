@@ -4,7 +4,7 @@ export default function SigninPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const signinHandler = async (e) => {
+  const signinHandler = async (e: any) => {
     e.preventDefault();
     // Signin logic
   };
