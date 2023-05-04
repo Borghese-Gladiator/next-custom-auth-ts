@@ -1,6 +1,3 @@
-// pages/signin.js
-
-import Layout from "../components/Layout";
 import { useState } from "react";
 
 export default function SigninPage() {

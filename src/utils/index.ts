@@ -9,14 +9,6 @@ export async function dbConnect() {
   return await mongoose.connect(process.env.MONGODB_URI);
 }
 
-const UserSchema = new mongoose.Schema<IUser>({
-  name: String,
-  email: String,
-  password: String,
-});
-export const UserModel = mongoose.model<IUser>('User', UserSchema);
-
-
 export async function getUser(req: NextApiRequest, res: NextApiResponse) {
   const token = getCookie("token", { req, res });
 

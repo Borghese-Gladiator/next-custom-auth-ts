@@ -1,4 +1,5 @@
 import Head from 'next/head'
+
 import { dbConnect, getUser } from '@/utils';
 
 export default function Home() {
@@ -9,7 +10,7 @@ export default function Home() {
   )
 }
 
-export async function getServerSideProps({ req, res }) {
+export async function getServerSideProps({ req, res}: any) {
   // Redirect user if unauthenticated
   await dbConnect();
   const user = await getUser(req, res);

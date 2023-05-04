@@ -1,10 +1,11 @@
-import SignupPage from "../components/SignupPage";
+import SignupPage from "@/components/SignupPage";
+import { dbConnect, getUser } from "@/utils";
 
 function Signup() {
   return <SignupPage />
 }
 
-export async function getServerSideProps({ req, res }) {
+export async function getServerSideProps({ req, res}: any) {
   await dbConnect();
 
   // Redirect user if already authenticated

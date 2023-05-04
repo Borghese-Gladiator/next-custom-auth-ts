@@ -1,6 +1,3 @@
-// pages/signup.js
-
-import Layout from "../components/Layout";
 import { useState } from "react";
 
 export default function SignupPage() {
