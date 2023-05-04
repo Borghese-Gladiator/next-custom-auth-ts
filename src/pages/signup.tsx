@@ -1,3 +1,9 @@
+import SignupPage from "../components/SignupPage";
+
+function Signup() {
+  return <SignupPage />
+}
+
 export async function getServerSideProps({ req, res }) {
   await dbConnect();
 

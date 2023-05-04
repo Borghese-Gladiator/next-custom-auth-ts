@@ -1,3 +1,9 @@
+import SigninPage from "../components/SigninPage";
+
+function Signin() {
+  return <SigninPage />
+}
+
 export async function getServerSideProps({ req, res }) {
   await dbConnect();
 
