@@ -2,7 +2,7 @@
 
 import mongoose from "mongoose";
 
-async function dbConnect() {
+export async function dbConnect() {
   return await mongoose.connect(process.env.MONGODB_URI);
 }
 
@@ -11,9 +11,4 @@ const UserSchema = new mongoose.Schema<User>({
   email: String,
   password: String,
 });
-const User = mongoose.model<User>('User', UserSchema);
-
-export const utils = {
-	dbConnect,
-	models: { User }
-};
+export const User = mongoose.model<User>('User', UserSchema);

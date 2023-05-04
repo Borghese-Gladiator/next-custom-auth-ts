@@ -1,9 +1,10 @@
-import '@/styles/globals.css'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import type { AppProps } from 'next/app'
-import { ToastContainer, toast } from 'react-toastify';
-import Layout from '../components/Layout';
+import type { AppProps } from 'next/app';
 import { Head } from 'next/document';
+
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ToastContainer, toast } from 'react-toastify';
+
+import Layout from '../components/Layout';
 
 const queryClient = new QueryClient();
 

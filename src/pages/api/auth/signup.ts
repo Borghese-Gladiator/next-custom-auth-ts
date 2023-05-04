@@ -1,7 +1,10 @@
-import { dbConnect, User } from "@/api/_utils";
+import { NextApiRequest, NextApiResponse } from "next";
+
 import jwt from "jsonwebtoken";
 import { setCookies } from "cookies-next";
-import { NextApiRequest, NextApiResponse } from "next";
+
+import { dbConnect, User } from "@/utils";
+
 
 type Data = {
   message: string
