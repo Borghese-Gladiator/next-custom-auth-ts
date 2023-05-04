@@ -13,17 +13,6 @@ async function getUser(user: User | null | undefined): Promise<User | null> {
   return await response.json();
 }
 
-export interface User {
-  accessToken: string;
-  user: {
-    email: string;
-    id: number;
-  }
-}
-
-interface IUseUser {
-  user: User | null;
-}
 /*
 export async function getStaticProps() {
   const posts = await getPosts()

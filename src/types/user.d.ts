@@ -1,5 +1,6 @@
-interface User {
-  name: string;
+interface IUser {
+  accessToken: string;
   email: string;
+  name: string;
   password: string;
 }

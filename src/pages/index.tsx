@@ -1,11 +1,11 @@
 import Head from 'next/head'
+import { dbConnect, getUser } from '@/utils';
 
 export default function Home() {
   return (
-    <>
-      <main>
-      </main>
-    </>
+    <div>
+      <h1>HOME</h1>
+    </div>
   )
 }
 

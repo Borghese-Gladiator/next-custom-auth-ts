@@ -2,7 +2,7 @@ import { UseMutateFunction, useMutation, useQueryClient } from "@tanstack/react-
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 
-async function signIn(email: string, password: string): Promise<User> {
+async function signIn(email: string, password: string): Promise<IUser> {
   const response = await fetch('/api/auth/signin', {
     method: 'POST',
     headers: {
@@ -16,7 +16,7 @@ async function signIn(email: string, password: string): Promise<User> {
   return await response.json();
 }
 
-type IUseSignIn = UseMutateFunction<User, unknown, {
+type IUseSignIn = UseMutateFunction<IUser, unknown, {
   email: string;
   password: string;
 }, unknown>
@@ -25,7 +25,7 @@ export function useSignin(): IUseSignIn {
   const queryClient = useQueryClient();
   const router = useRouter();
 
-  const { mutate: signInMutation } = useMutation<User, unknown, { email: string, password: string }, unknown>(
+  const { mutate: signInMutation } = useMutation<IUser, unknown, { email: string, password: string }, unknown>(
     ({
       email,
       password
