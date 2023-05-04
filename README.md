@@ -1,3 +1,43 @@
+# Next Custom Auth in TypeScript
+This project was a quick PoC for me to write some clean authentication code so I could easily add it to my other project.
+- Next.js
+- TypeScript
+- React Query (v4) `@tanstack/react-query` 
+
+## Notes
+- `_app.tsx` is for adding Global Layout or Meta Tags
+- `_document.tsx` is for editing the basic structure of your HTML code
+
+### Steps
+- Run `yarn create next-app next-custom-auth-ts --ts --eslint --no-tailwind`
+- Save MONGODB_URI after creating database and collection in MongoDB Atlas
+- Write backend Next.js serverless functions
+  - Add libraries: `yarn add axios cookies-next jsonwebtoken @types/jsonwebtoken mongoose` 
+  - `/api/_utils.ts` - connect to database and user modal
+  - `/api/auth/signin.ts`
+  - `/api/auth/signup.ts`
+- Write hooks to fetch Next.js serverless functions - [https://dev.to/this-is-learning/react-query-usequery-36i](https://dev.to/this-is-learning/react-query-usequery-36i)
+  - `yarn add @tanstack/react-query`
+  - `useSignin`
+  - `useSignup`
+  - `useCurrentUser`
+  - Preload data serverside with Next.js `getStaticProps` and React Query useQuery's `initialData`
+- Write frontend pages
+  - `yarn add react-toastify`
+  - `components/Layout.tsx`
+  - `components/SigninPage.tsx`
+  - `components/SignupPage.tsx`
+- Update to use import alises in tsconfig.json
+
+### VSCode Shortcuts
+- Alt+Shift+F - format
+- Alt+Shift+O - optimize imports
+- Ctrl+Z and Ctrl+Y (I've spent too much time with that Mac and am clicking Ctrl+Shift+Z now)
+- Ctrl+. - editor actions
+- Ctrl+Shift+P - run command (eg: `Remove unused imports` or `Sort Imports`)
+  - note: Sort Imports just sorts alphabetically and not as it should (system, package, and then custom imports)
+
+# Next.js README
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
