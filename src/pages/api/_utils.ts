@@ -6,18 +6,12 @@ async function dbConnect() {
   return await mongoose.connect(process.env.MONGODB_URI);
 }
 
-interface IUser {
-  name: string;
-  email: string;
-  password: string;
-}
-
-const UserSchema = new mongoose.Schema<IUser>({
+const UserSchema = new mongoose.Schema<User>({
   name: String,
   email: String,
   password: String,
 });
-const User = mongoose.model<IUser>('User', UserSchema);
+const User = mongoose.model<User>('User', UserSchema);
 
 export const utils = {
 	dbConnect,
