@@ -21,13 +21,21 @@ This project was a quick PoC for me to write some clean authentication code so I
   - `useSignin`
   - `useSignup`
   - `useCurrentUser`
-  - Preload data serverside with Next.js `getStaticProps` and React Query useQuery's `initialData`
 - Write frontend pages
   - `yarn add react-toastify`
+  - `yarn add @mui/material @emotion/react @emotion/styled`
   - `components/Layout.tsx`
   - `components/SigninPage.tsx`
   - `components/SignupPage.tsx`
+  - `components/HomePage.tsx`
+  - `pages/index.tsx`
+  - `pages/signin.tsx`
+  - `pages/signup.tsx`
+  - Preload data serverside with Next.js `getStaticProps` and React Query useQuery's `initialData`
 - Update to use import alises in tsconfig.json
+- Validate bundle size
+  - `yarn add -D @next/bundle-analyzer cross-env`
+  - add analyze command to package.json - `"analyze": "cross-env ANALYZE=true next build"`
 
 ### VSCode Shortcuts
 - Alt+Shift+F - format
