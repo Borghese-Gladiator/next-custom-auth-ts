@@ -37,6 +37,11 @@ This project was a quick PoC for me to write some clean authentication code so I
 - Ctrl+Shift+P - run command (eg: `Remove unused imports` or `Sort Imports`)
   - note: Sort Imports just sorts alphabetically and not as it should (system, package, and then custom imports)
 
+
+### Retro
+TypeScript is a pain in the ass with all the request types and refactoring other people's code. The correct way is prob write everything in JS and then add types to working MVP code so I'm not stuck with editing random people's tutorial code while adding types.
+
+
 # Next.js README
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
