@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
-import { currentUserKey } from "../utils/constants";
+import { currentUserKey } from "@/utils/constants";
 
 function postSignin(body: any): any {
   return fetch('/api/auth/signin', {

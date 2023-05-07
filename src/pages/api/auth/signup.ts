@@ -3,14 +3,15 @@ import { NextApiRequest, NextApiResponse } from "next";
 import jwt from "jsonwebtoken";
 import { setCookies } from "cookies-next";
 
-import { dbConnect, User } from "@/utils";
+import { dbConnect } from "@/utils/";
+import User from "@/utils/User";
 
 
 type Data = {
   message: string
 }
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<Data | IUser>) {
   await dbConnect();
 
   const { name, email, password } = req.body;
