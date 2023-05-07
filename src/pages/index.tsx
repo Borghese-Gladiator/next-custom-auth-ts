@@ -3,11 +3,7 @@ import Head from 'next/head'
 import { dbConnect, getUser } from '@/utils';
 
 export default function Home() {
-  return (
-    <div>
-      <h1>HOME</h1>
-    </div>
-  )
+  return <HomePage />
 }
 
 export async function getServerSideProps({ req, res}: any) {

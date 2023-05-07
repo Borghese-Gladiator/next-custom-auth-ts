@@ -42,7 +42,3 @@ export default function SignupPage() {
     </>
   );
 }
-
-function useSignup(): { mutate: any; } {
-  throw new Error("Function not implemented.");
-}
