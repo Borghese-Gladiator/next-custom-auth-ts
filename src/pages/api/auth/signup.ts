@@ -3,7 +3,8 @@ import { NextApiRequest, NextApiResponse } from "next";
 import jwt from "jsonwebtoken";
 import { setCookies } from "cookies-next";
 
-import { dbConnect } from "@/utils/";
+// TODO(tim): 5/7/2023 - fix import to be @/utils (typescript thingy not figuring out modules correctly)
+import { dbConnect } from "@/utils/index";
 import User from "@/utils/User";
 
 
