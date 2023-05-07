@@ -1,75 +1,29 @@
-import { useQuery } from "@tanstack/react-query";
+import { UseMutateFunction, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useRouter } from "next/router";
+import { toast } from "react-toastify";
+import { currentUserKey } from "../utils/constants";
 
-async function getUser(user: User | null | undefined): Promise<User | null> {
-  if (!user) return null;
-  const response = await fetch(`/api/users/${user.user.id}`, {
-    headers: {
-      Authorization: `Bearer ${user.accessToken}`
-    }
+function getCurrentUser({ id }: any): any {
+  return fetch(`/api/users/${id}`, {
+    method: 'GET'
   })
-  if (!response.ok)
-    throw new ResponseError('Failed on get user request', response);
-
-  return await response.json();
 }
 
-/*
-export async function getStaticProps() {
-  const posts = await getPosts()
-  return { props: { posts } }
+export function useCurrentUser(): any {
+  const queryClient = useQueryClient();
+  const router = useRouter();
+
+  const query = useQuery(currentUserKey, getCurrentUser, {
+    onSuccess: (data) => {
+      toast.success('Successfully got current user');
+    },
+    onError: (error) => toast.error('Failed to get current user')
+  });
+
+  const { mutate: signupMutation } = useMutation(
+    getCurrentUser, {
+    
+  });
+
+  return signupMutation;
 }
-
-function Posts(props) {
-  const { data } = useQuery({
-    queryKey: ['posts'],
-    queryFn: getPosts,
-    initialData: props.posts,
-  })
-
-  // ...
-}
-*/
-
-export function useUser(): IUseUser {
-  const { data: user } = useQuery<User | null>(
-    [QUERY_KEY.user],
-    async (): Promise<User | null> => getUser(user),
-    {
-      refetchOnMount: false,
-      refetchOnWindowFocus: false,
-      refetchOnReconnect: false,
-      initialData: userLocalStorage.getUser,
-      onError: () => {
-        userLocalStorage.removeUser();
-      }
-    });
-
-  useEffect(() => {
-    if (!user) userLocalStorage.removeUser();
-    else userLocalStorage.saveUser(user);
-  }, [user]);
-
-  return {
-    user: user ?? null,
-  }
-}
-
-/*
-// lib/getUser.js
-import { getCookie } from "cookies-next";
-import jwt from "jsonwebtoken";
-import User from "../models/user";
-
-export default async function getUser(req, res) {
-  const token = getCookie("token", { req, res });
-
-  try {
-    const data = jwt.verify(token, process.env.TOKEN_SECRET);
-    let user = await User.findById(data.userId);
-    user = JSON.parse(JSON.stringify(user));
-    return user;
-  } catch (error) {
-    return null;
-  }
-}
-*/

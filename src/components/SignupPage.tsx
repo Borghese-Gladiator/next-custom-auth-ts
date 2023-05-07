@@ -1,13 +1,15 @@
 import { useState } from "react";
+import useSignup from '@/hooks/useSignup';
 
 export default function SignupPage() {
+  const { mutate: signupMutate } = useSignup();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const signupHandler = async (e) => {
+  const signupHandler = async (e: any) => {
     e.preventDefault();
-    // signup logic
+    signupMutate({ name, email, password });
   };
 
   return (
@@ -39,4 +41,8 @@ export default function SignupPage() {
       </form>
     </>
   );
+}
+
+function useSignup(): { mutate: any; } {
+  throw new Error("Function not implemented.");
 }

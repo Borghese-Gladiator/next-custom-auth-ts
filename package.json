@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
     "@emotion/react": "^11.11.0",
@@ -28,5 +29,9 @@
     "react-dom": "18.2.0",
     "react-toastify": "^9.1.2",
     "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "@next/bundle-analyzer": "^13.4.1",
+    "cross-env": "^7.0.3"
   }
 }

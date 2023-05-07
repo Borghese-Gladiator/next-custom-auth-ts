@@ -1,12 +1,14 @@
 import { useState } from "react";
+import useSignin from "../hooks/useSignin";
 
 export default function SigninPage() {
+  const { mutate: signinMutate } = useSignin();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const signinHandler = async (e: any) => {
     e.preventDefault();
-    // Signin logic
+    signinMutate({ email, password });
   };
 
   return (

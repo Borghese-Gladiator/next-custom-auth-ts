@@ -1,41 +1,31 @@
 import { UseMutateFunction, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
+import { currentUserKey } from "../utils/constants";
 
-async function signUp(email: string, password: string): Promise<IUser> {
-  const response = await fetch('/api/auth/signup', {
+function postSignup(body: any): any {
+  return fetch('/api/auth/signin', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'content-type': 'application/json;charset=UTF-8',
     },
-    body: JSON.stringify({ email, password })
+    body,
   })
-  if (!response.ok)
-    throw new ResponseError('Failed on sign up request', response);
-
-  return await response.json();
 }
 
-type IUseSignUp = UseMutateFunction<IUser, unknown, {
-  email: string;
-  password: string;
-}, unknown>
-
-export function useSignUp(): IUseSignUp {
+export default function useSignup(): any {
   const queryClient = useQueryClient();
   const router = useRouter();
 
-  const { mutate: signUpMutation } = useMutation<IUser, unknown, { email: string, password: string }, unknown>(
-    ({
-      email,
-      password
-    }) => signUp(email, password), {
+  const mutation = useMutation(
+    postSignup, {
     onSuccess: (data) => {
       toast.success('Sign-up success');
+      queryClient.invalidateQueries({ queryKey: currentUserKey });
       router.push('/');
     },
     onError: (error) => toast.error('Sign-up failed')
   });
 
-  return signUpMutation
+  return mutation;
 }
