@@ -1,14 +1,28 @@
-// Mongoose with TypeScript - https://mongoosejs.com/docs/typescript.html
-
 import { NextApiRequest, NextApiResponse } from "next";
-
-import { CookieValueTypes, getCookie } from "cookies-next";
+import { QueryKey } from "@tanstack/react-query";
+import { getCookie } from "cookies-next";
 import jwt from "jsonwebtoken";
 import mongoose from "mongoose";
 
-import User from "./User";
+/**
+ * CONSTANTS
+ */
+export const currentUserKey: QueryKey = ['currentUser'];
 
+/**
+ * MODELS
+ * Mongoose with TypeScript - https://mongoosejs.com/docs/typescript.html
+ */
+const UserSchema = new mongoose.Schema<IUser>({
+  name: String,
+  email: String,
+  password: String,
+});
+export const User = mongoose.model<IUser>('User', UserSchema);
 
+/**
+ * UTILS
+ */
 export async function dbConnect() {
   return await mongoose.connect(process.env.MONGODB_URI);
 }
