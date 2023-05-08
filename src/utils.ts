@@ -8,6 +8,7 @@ import mongoose from "mongoose";
  * CONSTANTS
  */
 export const currentUserKey: QueryKey = ['currentUser'];
+export const baseURL = process.env.NODE_ENV === 'production' ? 'https://vercel' : 'http://localhost:3000';
 export const TOKEN_SECRET = process.env.TOKEN_SECRET ?? '';
 
 /**
@@ -19,7 +20,7 @@ const UserSchema = new mongoose.Schema<IUser>({
   email: String,
   password: String,
 });
-export const User = mongoose.model<IUser>('User', UserSchema);
+export const User = mongoose.models.User || mongoose.model<IUser>('User', UserSchema);
 
 /**
  * UTILS
@@ -29,7 +30,7 @@ export async function dbConnect() {
 }
 
 export function getCurrentUser({ id }: any): any {
-  return fetch(`/api/users/${id}`, {
+  return fetch(`${baseURL}/api/users/${id}`, {
     method: 'GET'
   })
 }
