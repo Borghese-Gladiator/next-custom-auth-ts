@@ -2,7 +2,7 @@ import SignupPage from "@/components/SignupPage";
 import { dbConnect, getCurrentUser } from "@/utils";
 
 
-function Signup() {
+export default function Signup() {
   return <SignupPage />
 }
 

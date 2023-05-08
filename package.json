@@ -29,6 +29,8 @@
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^13.4.1",
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "eslint": "^8.40.0",
+    "eslint-plugin-next": "^0.0.0"
   }
 }
