@@ -1,6 +1,5 @@
 import SignupPage from "@/components/SignupPage";
-// TODO(tim): 5/7/2023 - fix import to be @/utils (typescript thingy not figuring out modules correctly)
-import { dbConnect, getCurrentUser } from "@/utils/index";
+import { dbConnect, getCurrentUser } from "@/utils";
 
 
 function Signup() {

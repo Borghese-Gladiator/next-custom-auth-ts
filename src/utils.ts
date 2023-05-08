@@ -8,6 +8,7 @@ import mongoose from "mongoose";
  * CONSTANTS
  */
 export const currentUserKey: QueryKey = ['currentUser'];
+export const TOKEN_SECRET = process.env.TOKEN_SECRET ?? '';
 
 /**
  * MODELS

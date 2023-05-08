@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useSignin from "../hooks/useSignin";
+import useSignin from "@/hooks/useSignin";
 
 export default function SigninPage() {
   const { mutate: signinMutate } = useSignin();

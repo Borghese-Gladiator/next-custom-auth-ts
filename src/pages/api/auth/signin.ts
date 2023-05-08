@@ -3,9 +3,8 @@ import { NextApiRequest, NextApiResponse } from "next";
 import jwt from "jsonwebtoken";
 import { setCookies } from "cookies-next";
 
-// TODO(tim): 5/7/2023 - fix import to be @/utils (typescript thingy not figuring out modules correctly)
-import { dbConnect } from "@/utils/index";
-import User from "@/utils/User";
+import { dbConnect, TOKEN_SECRET, User } from "@/utils";
+
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data | IUser>) {
   await dbConnect();
@@ -21,7 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     const user = new User({ name, email, password });
     await user.save();
 
-    const token = jwt.sign({ userId: user._id }, process.env.TOKEN_SECRET, {
+    const token = jwt.sign({ userId: user._id }, TOKEN_SECRET, {
       expiresIn: "1d",
     });
 

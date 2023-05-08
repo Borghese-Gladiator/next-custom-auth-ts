@@ -1,10 +1,9 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/router";
+
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 
-// TODO(tim): 5/7/2023 - fix import to be @/utils (typescript thingy not figuring out modules correctly)
-import { getCurrentUser } from "@/utils/index";
-import { currentUserKey } from "@/utils/constants";
+import { currentUserKey, getCurrentUser } from "@/utils";
 
 export function useCurrentUser(): any {
   const queryClient = useQueryClient();
