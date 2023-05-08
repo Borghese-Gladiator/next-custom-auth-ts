@@ -42,9 +42,14 @@ This project was a quick PoC for me to write some clean authentication code so I
 - Alt+Shift+O - optimize imports
 - Ctrl+Z and Ctrl+Y (I've spent too much time with that Mac and am clicking Ctrl+Shift+Z now)
 - Ctrl+. - editor actions
-- Ctrl+Shift+P - run command (eg: `Remove unused imports` or `Sort Imports`)
-  - note: Sort Imports just sorts alphabetically and not as it should (system, package, and then custom imports)
-
+- Ctrl+Shift+P - run command
+- Commands
+  - TypeScript
+    - Remove unused imports
+    - Sort Imports
+      - note: Sort Imports just sorts alphabetically and not as it should (system, package, and then custom imports)
+  - GitLens
+    - Toogle Line Blame
 
 ### Retro
 TypeScript is a pain in the ass with all the request types and refactoring other people's code. The correct way is prob write everything in JS and then add types to working MVP code so I'm not stuck with editing random people's tutorial code while adding types.
