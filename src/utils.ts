@@ -29,8 +29,8 @@ export async function dbConnect() {
   return await mongoose.connect(process.env.MONGODB_URI);
 }
 
-export function getCurrentUser({ id }: any): any {
-  return fetch(`${baseURL}/api/users/${id}`, {
+export async function getCurrentUser({ id }: any): Promise<any> {
+  return await fetch(`${baseURL}/api/users/${id}`, {
     method: 'GET'
   })
 }
@@ -46,4 +46,10 @@ export async function getUser(req: NextApiRequest, res: NextApiResponse) {
   } catch (error) {
     return null;
   }
+}
+
+export async function getAllUsers() {
+  return await fetch(`${baseURL}/api/allUsers`, {
+    method: 'GET'
+  });
 }
