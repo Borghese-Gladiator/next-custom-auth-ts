@@ -4,6 +4,12 @@ This project was a quick PoC for me to write some clean authentication code so I
 - TypeScript
 - React Query (v4) `@tanstack/react-query` 
 
+## Usage
+1. open Home page
+2. navigate to User profile
+3. if logged in, open page
+4. if not logged in, open signin page
+
 ## Notes
 - `_app.tsx` is for adding Global Layout or Meta Tags
 - `_document.tsx` is for editing the basic structure of your HTML code
@@ -28,9 +34,11 @@ This project was a quick PoC for me to write some clean authentication code so I
   - `components/SigninPage.tsx`
   - `components/SignupPage.tsx`
   - `components/HomePage.tsx`
+  - `components/UserPage.tsx`
   - `pages/index.tsx`
   - `pages/signin.tsx`
   - `pages/signup.tsx`
+  - `pages/user.tsx`
   - Preload data serverside with Next.js `getStaticProps` and React Query useQuery's `initialData`
 - Update to use import alises in tsconfig.json
 - Validate bundle size
