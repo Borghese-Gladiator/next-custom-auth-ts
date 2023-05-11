@@ -1,4 +1,4 @@
-import HomePage from '../components/HomePage';
+import HomePage from '../features/HomePage';
 
 import { dbConnect, getCurrentUser } from "@/utils";
 

@@ -1,4 +1,4 @@
-import SigninPage from "@/components/SigninPage";
+import SigninPage from "@/src/features/SigninPage";
 
 import { dbConnect, getCurrentUser } from "@/utils";
 

@@ -1,4 +1,4 @@
-import SignupPage from "@/components/SignupPage";
+import SignupPage from "@/src/features/SignupPage";
 import { dbConnect, getCurrentUser } from "@/utils";
 
 

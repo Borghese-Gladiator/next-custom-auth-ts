@@ -4,7 +4,7 @@ import type { AppProps } from 'next/app';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ToastContainer, toast } from 'react-toastify';
 
-import Layout from '@/components/Layout';
+import Layout from '@/src/features/Layout';
 
 const queryClient = new QueryClient();
 
