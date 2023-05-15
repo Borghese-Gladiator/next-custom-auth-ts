@@ -1,4 +1,4 @@
-import { Box, Button, Drawer, LinkProps, Link as MuiLink } from "@mui/material";
+import { Box, Button, Drawer, LinkProps, Link as MuiLink, Typography } from "@mui/material";
 import NextLink from 'next/link';
 import ErrorBoundary from "@/components/ErrorBoundary";
 
@@ -28,23 +28,31 @@ function NavDrawer({ userList = [] }: any) {
           flexDirection: 'column',
         }}
       >
-        <Link href="/" variant="h2" underline="none">
+        <Link href="/" variant="h5" underline="none">
           Home Page
         </Link>
-        <Link href="/signup" variant="h2" underline="none">
-          SignUp
+        <Link href="/signup" variant="h5" underline="none">
+          Register
         </Link>
-        <Link href="/signin" variant="h2" underline="none">
-          SignIn
+        <Link href="/signin" variant="h5" underline="none">
+          Login
         </Link>
+        <br />
+        <Typography variant="h4">
+          User List
+        </Typography>
         <div>
-          {userList.map(({ id, name }: any) => {
-            return (
-              <Link href={`/user/${id}`} variant="body1" underline="none">
-                {name}
-              </Link>
-            );
-          })}
+          {
+            userList.length === 0
+              ? <Typography variant="body1">No users yet</Typography>
+              : userList.map(({ id, name }: any) => {
+                return (
+                  <Link href={`/user/${id}`} variant="body1" underline="none">
+                    {name}
+                  </Link>
+                );
+              })
+          }
         </div>
       </Box>
     </Drawer>
