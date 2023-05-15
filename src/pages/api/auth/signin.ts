@@ -3,7 +3,8 @@ import { NextApiRequest, NextApiResponse } from "next";
 import jwt from "jsonwebtoken";
 import { setCookies } from "cookies-next";
 
-import { dbConnect, TOKEN_SECRET, User } from "@/utils";
+import { dbConnect, TOKEN_SECRET } from "@/utils";
+import User from "@/models/User.model";
 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data | IUser>) {

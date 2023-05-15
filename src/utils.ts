@@ -3,6 +3,7 @@ import { QueryKey } from "@tanstack/react-query";
 import { getCookie } from "cookies-next";
 import jwt from "jsonwebtoken";
 import mongoose from "mongoose";
+import User from "@/models/User.model";
 
 /**
  * CONSTANTS
@@ -11,16 +12,6 @@ export const currentUserKey: QueryKey = ['currentUser'];
 export const baseURL = process.env.NODE_ENV === 'production' ? 'https://vercel' : 'http://localhost:3000';
 export const TOKEN_SECRET = process.env.TOKEN_SECRET ?? '';
 
-/**
- * MODELS
- * Mongoose with TypeScript - https://mongoosejs.com/docs/typescript.html
- */
-const UserSchema = new mongoose.Schema<IUser>({
-  name: String,
-  email: String,
-  password: String,
-});
-export const User = mongoose.models.User || mongoose.model<IUser>('User', UserSchema);
 
 /**
  * UTILS

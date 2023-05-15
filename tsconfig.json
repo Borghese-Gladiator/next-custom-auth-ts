@@ -18,9 +18,10 @@
     "paths": {
       "@/*": ["*"],
 			"@/api/*": ["src/pages/api/*"],
-      "@/features/*": ["src/features/*"],
       "@/components/*": ["src/components/*"],
+      "@/features/*": ["src/features/*"],
       "@/hooks/*": ["src/hooks/*"],
+      "@/models/*": ["src/models/*"],
       "@/utils": ["src/utils.ts"]
     }
   },
