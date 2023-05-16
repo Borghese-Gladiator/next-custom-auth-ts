@@ -4,12 +4,12 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 
 export default function Layout({ children, ...props }: any): JSX.Element {
   return (
-    <div>
+    <Box sx={{ display: 'flex' }}>
       <NavDrawer {...props} />
       <ErrorBoundary>
         <main>{children}</main>
       </ErrorBoundary>
-    </div>
+    </Box>
   );
 }
 
@@ -18,9 +18,20 @@ function Link(props: LinkProps<'a'>) {
   return <MuiLink component={NextLink} {...props} />
 }
 
+const drawerWidth = 200;
 function NavDrawer({ userList = [] }: any) {
   return (
-    <Drawer variant="permanent">
+    <Drawer
+      variant="permanent"
+      sx={{
+        width: drawerWidth,
+        flexShrink: 0,
+        '& .MuiDrawer-paper': {
+          width: drawerWidth,
+          boxSizing: 'border-box',
+        },
+      }}
+    >
       <Box
         p={3}
         sx={{
@@ -28,17 +39,17 @@ function NavDrawer({ userList = [] }: any) {
           flexDirection: 'column',
         }}
       >
-        <Link href="/" variant="h5" underline="none">
+        <Link href="/" variant="h6" underline="none">
           Home Page
         </Link>
-        <Link href="/signup" variant="h5" underline="none">
+        <Link href="/signup" variant="h6" underline="none">
           Register
         </Link>
-        <Link href="/signin" variant="h5" underline="none">
+        <Link href="/signin" variant="h6" underline="none">
           Login
         </Link>
         <br />
-        <Typography variant="h4">
+        <Typography variant="h6">
           User List
         </Typography>
         <div>
